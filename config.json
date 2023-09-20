@@ -1,0 +1,75 @@
+{
+  "DisplayResolution": [
+    2400,
+    1600
+  ],
+  "LabelsList": [
+    {
+      "Name": "ToDelete",
+      "Key": "d",
+      "Color": [
+        0,
+        0,
+        255
+      ],
+      "Excludes": [
+        "JpgOnly",
+        "BestOf"
+      ],
+      "Actions": [
+        "CopyTo:ToDelete",
+        "ExtCopyTo::.ARW:ToDelete",
+        "DeleteRow"
+      ]
+    },
+    {
+      "Name": "JpgOnly",
+      "Key": "j",
+      "Color": [
+        0,
+        127,
+        255
+      ],
+      "Excludes": [
+        "ToDelete",
+        "BestOf"
+      ],
+      "Actions": [
+        "ExtMoveTo::.ARW:ToDelete"
+      ]
+    },
+    {
+      "Name": "BestOf",
+      "Key": "g",
+      "Color": [
+        20,
+        180,
+        20
+      ],
+      "Excludes": [
+        "ToDelete",
+        "JpgOnly"
+      ],
+      "Actions": [
+        "CopyTo:BestOf",
+        "ExtCopyTo::.ARW:BestOf"
+      ]
+    }
+  ],
+  "LabelsDisplay": {
+    "SquaresWidth": 30,
+    "SquaresVSpacing": 20,
+    "Thickness": 2,
+    "OuterBorderColor": [
+      255,
+      255,
+      255
+    ],
+    "FilterOuterColor": [
+      0,
+      0,
+      0
+    ]
+  },
+  "RecordFileName": "DbAnnotateRecord.csv"
+}
