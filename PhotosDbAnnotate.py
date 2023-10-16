@@ -646,6 +646,10 @@ class PhotosDbAnnotate:
 					# this is dumb, but this is the quick way i found to verify that we're within the parent folder
 					continue
 
+				if fileName in listFilenamesOnly:
+					# this is a duplicate...
+					continue
+
 				newEntry = { 'FileName':fileName }#, 'ToDelete':False, 'JpgOnly':False, 'BestOf':False }
 				# new entry: fill all the labels as False
 				for ll in self.LabelsList:
@@ -654,8 +658,9 @@ class PhotosDbAnnotate:
 				#self.FilesDataFrame = self.FilesDataFrame.append(newEntry, ignore_index=True)
 				self.FilesDataFrame = pd.concat([self.FilesDataFrame, pd.DataFrame([newEntry])], ignore_index=True)
 
-				#listFilenamesOnly.append(fileName)
+				listFilenamesOnly.append(fileName)
 				#print(fileName)
+
 
 			#listFilenamesOnly = sorted(listFilenamesOnly)	#maybe rather put the sort in the Path thing
 			# sort by filenames (for now, i may add the file date some day it's quite simple to do)
@@ -808,7 +813,8 @@ class PhotosDbAnnotate:
 				# first update
 			#	self.RefreshWindowData()
 
-			k = cv2.waitKey(0) & 0xFF
+			#k = cv2.waitKey(0) & 0xFF
+			k = cv2.waitKeyEx(0)
 			if k == 27:
 				# escape key
 				#break
@@ -862,14 +868,14 @@ class PhotosDbAnnotate:
 				self.DisplayAnnotations = not self.DisplayAnnotations
 				self.RefreshImg()
 
-			elif (k == ord('n')) or (k == 3):
+			elif (k == ord('n')) or (k == 3) or (k==2621440) or (k==2555904):
 				# next image (in the filtered list)
 				#self.CurrentListPosition = (self.CurrentListPosition + 1) % len(self.FilteredDF.index)
 				self.CurrentListPosition = (self.CurrentListPosition + 1) % len(self.FilteredImgFileList)
 				self.LoadImg()
 				self.RefreshImg()
 
-			elif (k == ord('b')) or (k == 2):
+			elif (k == ord('b')) or (k == 2) or (k==2490368) or (k==2424832):
 				# previous image (in the filtered list)
 				#self.CurrentListPosition = (self.CurrentListPosition + (len(self.FilteredDF.index)-1)) % len(self.FilteredDF.index)
 				self.CurrentListPosition = (self.CurrentListPosition + (len(self.FilteredImgFileList)-1)) % len(self.FilteredImgFileList)
@@ -957,7 +963,7 @@ class PhotosDbAnnotate:
 
 						self.LoadImg()
 						self.RefreshImg()
-				#print(k)
+				# print(k)
 
 
 

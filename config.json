@@ -1,45 +1,76 @@
 {
   "DisplayResolution": [
-    2400,
-    1600
+    1320,
+    880
   ],
   "LabelsList": [
     {
-      "Name": "ToDelete",
-      "Key": "d",
+      "Name": "BadEncoding",
+      "Key": "e",
       "Color": [
         0,
         0,
         255
       ],
       "Excludes": [
-        "JpgOnly",
+        "Good",
         "BestOf"
       ],
       "Actions": [
-        "CopyTo:ToDelete",
-        "ExtCopyTo::.ARW:ToDelete",
+        "MoveTo:BadEncoding",
+        "ExtMoveTo::.json:BadEncoding",
         "DeleteRow"
       ]
     },
     {
-      "Name": "JpgOnly",
-      "Key": "j",
+      "Name": "Blurry",
+      "Key": "f",
       "Color": [
         0,
         127,
         255
       ],
       "Excludes": [
-        "ToDelete",
-        "BestOf"
+        "BadEncoding"
       ],
       "Actions": [
-        "ExtMoveTo::.ARW:ToDelete"
+        "MoveTo:Blurry",
+        "ExtMoveTo::.json:Blurry",
+        "DeleteRow"
       ]
     },
     {
-      "Name": "BestOf",
+      "Name": "TooCloudy",
+      "Key": "c",
+      "Color": [
+        127,
+        127,
+        127
+      ],
+      "Excludes": [
+        "BadEncoding"
+      ],
+      "Actions": [
+        "MoveTo:TooCloudy",
+        "ExtMoveTo::.json:TooCloudy",
+        "DeleteRow"
+      ]
+    },
+    {
+      "Name": "WrongAlignment",
+      "Key": "w",
+      "Color": [
+        20,
+        20,
+        180
+      ],
+      "Excludes": [
+      ],
+      "Actions": [
+      ]
+    },
+    {
+      "Name": "Good",
       "Key": "g",
       "Color": [
         20,
@@ -47,18 +78,15 @@
         20
       ],
       "Excludes": [
-        "ToDelete",
-        "JpgOnly"
+        "BadEncoding"
       ],
       "Actions": [
-        "CopyTo:BestOf",
-        "ExtCopyTo::.ARW:BestOf"
       ]
     }
   ],
   "LabelsDisplay": {
-    "SquaresWidth": 30,
-    "SquaresVSpacing": 20,
+    "SquaresWidth": 20,
+    "SquaresVSpacing": 15,
     "Thickness": 2,
     "OuterBorderColor": [
       255,
